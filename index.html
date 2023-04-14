@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplicacion Infantil de Animales</title>
+</head>
+<body>
+    <h1>Seleccione un animal para reproducir su sonido:</h1>
+    <button onclick="reproducirSonido('Gato')"><img src="gato.jpg" width="100" height="100"><br>Gato</button>
+    <audio src="Miau.mp3" preload="none"></audio>
+    <button onclick="reproducirSonido('Perro')"><img src="perro.jpg" width="100" height="100"><br>Perro</button>
+    <audio src="Guau.mp3" preload="none"></audio>
+    <button onclick="reproducirSonido('Vaca')"><img src="vaca.jpg" width="100" height="100"><br>Vaca</button>
+    <audio src="Muu.mp3" preload="none"></audio>
+
+    <script>
+        function reproducirSonido(animal) {
+            // Creamos una instancia del animal seleccionado
+            var animalSeleccionado;
+            if (animal === "Gato") {
+                animalSeleccionado = new Gato();
+            } else if (animal === "Perro") {
+                animalSeleccionado = new Perro();
+            } else if (animal === "Vaca") {
+                animalSeleccionado = new Vaca();
+            }
+
+            // Reproducimos el sonido del animal seleccionado
+            var audio = new Audio(animalSeleccionado.sonido() + ".mp3");
+            audio.play();
+        }
+    </script>
+</body>
+</html>
